@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <head>
+      <meta charset="utf-8" />
+      <title>Python IDE on webpage - example</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+      <!--jquery-->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+      <!--skulpt-->
+      <script src="https://cdn.jsdelivr.net/npm/@s524797336/skulpt@1.0.3/skulpt.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@s524797336/skulpt@1.0.3/skulpt-stdlib.min.js"></script>
+
+      <!--import ace-->
+      <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"
+        integrity="sha512-GZ1RIgZaSc8rnco/8CXfRdCpDxRCphenIiZ2ztLy3XQfCbQUSCuk8IudvNHxkRA3oUg6q0qejgN/qqyG1duv5Q=="
+        crossorigin="anonymous"
+      ></script>
+
+      <!--setting height is important-->
+      <style>
+          .editor, .output {
+            height: 60vh;
+          }
+      </style>
+  </head>
+  <body>
+    <h1>Run python in webpage!</h1>
+    <div style="display: flex; flex-wrap: wrap;">
+      <!--editor container: setting width to is important-->
+      <div style="width: 50%;">
+        <div class="editor"></div>
+      </div>
+      <!--output container: setting width to is important-->
+      <div style="width: 50%;">
+        <div class="output"></div>
+      </div>
+      <!--button group-->
+      <div style="margin-top: 10px;">
+        <button
+          type="button"
+          class="run-button"
+          onclick="runit($($(this).parent().siblings()[0]).children()[0], $($(this).parent().siblings()[1]).children()[0])"
+        >
+          Run code
+        </button>
+        <button
+          type="button"
+          class="stop-button"
+          onclick="stopit()"
+          style="display: none;"
+        >
+          Stop code
+        </button>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-wrap: wrap;">
+        <!--editor container: setting width to is important-->
+        <div style="width: 50%;">
+          <div class="editor"></div>
+        </div>
+        <!--output container: setting width to is important-->
+        <div style="width: 50%;">
+          <div class="output"></div>
+        </div>
+        <!--button group-->
+        <div style="margin-top: 10px;">
+          <button
+            type="button"
+            class="run-button"
+            onclick="runit($($(this).parent().siblings()[0]).children()[0], $($(this).parent().siblings()[1]).children()[0])"
+          >
+            Run code
+          </button>
+          <button
+            type="button"
+            class="stop-button"
+            onclick="stopit()"
+            style="display: none;"
+          >
+            Stop code
+          </button>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-wrap: wrap;">
+        <!--editor container: setting width to is important-->
+        <div style="width: 50%;">
+          <div class="editor"></div>
+        </div>
+        <!--output container: setting width to is important-->
+        <div style="width: 50%;">
+          <div class="output"></div>
+        </div>
+        <!--button group-->
+        <div style="margin-top: 10px;">
+          <button
+            type="button"
+            class="run-button"
+            onclick="runit($($(this).parent().siblings()[0]).children()[0], $($(this).parent().siblings()[1]).children()[0])"
+          >
+            Run code
+          </button>
+          <button
+            type="button"
+            class="stop-button"
+            onclick="stopit()"
+            style="display: none;"
+          >
+            Stop code
+          </button>
+        </div>
+      </div>
+
+    <script src="skulpt-compiler.js"></script>
+  </body>
+</html>
