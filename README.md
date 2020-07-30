@@ -8,7 +8,9 @@ Run multiple python compiler in html webpage using [Ace editor](https://ace.c9.i
  ( refer `example.html` for single editor-console and `example-multiple.html`  for multiple editor-console )
  4. Add the `skulpt-compiler.js` script.
  5. Done!
- 
+
+### External Resources.
+1. Customise editor or put values from ace editor [docs](https://ace.c9.io/#nav=api&api=selection).
  
  `example.html` window -
  

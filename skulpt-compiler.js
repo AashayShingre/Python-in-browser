@@ -19,6 +19,7 @@ $(document).ready(function () {
     $(this).data("aceObject", output);
     output.prevCursorPosition = output.getCursorPosition();
 
+    //restrict cursor after the printed part during input
     output.selection.on("changeCursor", function () {
       const currentPosition = output.getCursorPosition();
       if (currentPosition.row < output.prevCursorPosition.row) {
@@ -29,7 +30,42 @@ $(document).ready(function () {
         }
       }
     });
+
+    //prevent selection by double triple click during input
+    output.selection.on("changeSelection", function () {
+      const anchorPosition = output.selection.getSelectionAnchor();
+      const leadPosition = output.selection.getSelectionLead();
+
+      if (
+        anchorPosition.row < output.prevCursorPosition.row ||
+        leadPosition.row < output.prevCursorPosition.row
+      ) {
+        output.selection.clearSelection();
+      } else if (
+        anchorPosition.row == output.prevCursorPosition.row ||
+        leadPosition.row == output.prevCursorPosition.row
+      ) {
+        if (
+          anchorPosition.column < output.prevCursorPosition.column ||
+          leadPosition.column < output.prevCursorPosition.column
+        ) {
+          output.selection.clearSelection();
+        }
+      }
+    });
   });
+
+  //prevent selection by drag and drop during input
+  $(".output").on(
+    "dragstart ondrop dbclick",
+    (e) => {
+      e.stopImmediatePropagation();
+      e.stopPropagation();
+      e.preventDefault();
+      return false;
+    },
+    false
+  );
 });
 
 function builtinRead(x) {
